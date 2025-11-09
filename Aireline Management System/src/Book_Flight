@@ -1,0 +1,45 @@
+
+import com.toedter.calendar.JDateChooser;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.ResultSet;
+import java.util.Random;
+
+
+public class Book_Flight extends  JFrame implements ActionListener {
+
+
+    JLabel AadharNO_LB;
+    JTextField AadharNO_tf;
+
+    JButton Fetch_Button;
+
+    JLabel Name_lb;
+    JLabel Set_Name_LB;
+
+    JLabel Nationality_LB;
+    JLabel Set_Nationality_LB;
+
+    JLabel Gender;
+    JLabel Set_Gender_LB;
+
+    JLabel Source_lb;
+    JComboBox<String> source;
+
+    JLabel Destination_lb;
+    JComboBox<String> destination;
+
+    JButton Fetch_Flight_Button;
+
+    JLabel Flight_Name_lb;
+    JLabel Set_Flight_Name_lb;
+
+    JLabel Flight_code_lb;
+    JLabel Set_Flight_code_lb;
+
+    JLabel date_label;
+    JDateChooser dateChooser;
+
+    JButton Save_button;
