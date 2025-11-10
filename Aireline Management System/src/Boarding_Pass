@@ -1,0 +1,44 @@
+import net.proteanit.sql.DbUtils;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.ResultSet;
+
+public class Boarding_Pass extends JFrame implements ActionListener {
+
+    JLabel PNR_LB;
+    JTextField PNR_tf;
+
+    JButton  Fetch_Button ;
+
+    JLabel Name_lb;
+    JLabel Set_Name_LB;
+
+    JLabel Nationality_LB;
+    JLabel Set_Nationality_LB;
+
+
+    JLabel Source_lb;
+    JLabel Set_Source_LB;
+
+    JLabel Destination_lb;
+    JLabel Set_Destination_LB;
+
+    JLabel Flight_Name_lb;
+    JLabel Set_Flight_Name_lb;
+
+    JLabel Flight_code_lb;
+    JLabel Set_Flight_code_lb;
+
+    JLabel date_label;
+    JLabel Set_date_code_lb;
+    Boarding_Pass(){
+
+        JPanel p = new JPanel();
+
+        ImageIcon backimg = new ImageIcon("E:\\Spotify\\airplane_storm_resized_1000x450.png");
+        setContentPane(new JLabel(backimg));
+/*
+        ImageIcon img = new ImageIcon("C:\\Users\\HP\
