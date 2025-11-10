@@ -174,3 +174,42 @@ public class Boarding_Pass extends JFrame implements ActionListener {
         setLocation(190, 160);
         setVisible(true);
     }
+
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == Fetch_Button) {
+
+
+            String PNR = PNR_tf.getText();
+
+            try {
+                DATA_BASE_CONNECTIVITY c = new DATA_BASE_CONNECTIVITY();
+
+                String q= "select * from Reservation  where PNR = '" + PNR + "'";
+                ResultSet rs = c.s.executeQuery(q);
+
+                if (rs.next()) {
+
+                    Set_Name_LB.setText(rs.getString("Name"));
+                    Set_Nationality_LB.setText(rs.getString("Nationality"));
+                    Set_Source_LB.setText(rs.getString("Source"));
+                    Set_Destination_LB.setText(rs.getString("Destination"));
+                    Set_Flight_Name_lb.setText(rs.getString("Flight_Name"));
+                    Set_Flight_code_lb.setText(rs.getString("Flight_Code"));
+                    Set_date_code_lb.setText(rs.getString("Date"));
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "No Information Found");
+                    return;
+                }
+
+            } catch (Exception ee) {
+                ee.printStackTrace();
+            }
+        }
+    }
+    public static void main(String[] args) {
+        new Boarding_Pass();
+    }
+}
