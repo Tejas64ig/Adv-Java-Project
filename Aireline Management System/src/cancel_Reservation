@@ -139,3 +139,59 @@ public class cancel_Reservation extends JFrame implements ActionListener {
         setVisible(true);
 
     }
+
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        String PNR = PNR_tf.getText();
+        if (e.getSource() == Fetch_Button) {
+
+            try {
+                DATA_BASE_CONNECTIVITY c = new DATA_BASE_CONNECTIVITY();
+
+                String q = "select * from Reservation  where PNR = '" + PNR + "'";
+                ResultSet rs = c.s.executeQuery(q);
+
+                if (rs.next()) {
+                    Set_Name_LB.setText(rs.getString("Name"));
+                    Set_Flight_code_lb.setText(rs.getString("Flight_Code"));
+                    Set_date_code_lb.setText(rs.getString("Date"));
+                } else {
+                    JOptionPane.showMessageDialog(null, "No Information Found");
+                    return;
+                }
+
+            } catch (Exception ee) {
+                ee.printStackTrace();
+            }
+        }
+        if (e.getSource() == Cancel_Button) {
+
+            String Name = Set_Name_LB.getText();
+            String Flight_Code  = Set_Flight_code_lb.getText();
+            String  Date= Set_date_code_lb.getText();
+            String Cancel_Num  = Set_Cancel_lb.getText();
+
+            try {
+
+                DATA_BASE_CONNECTIVITY c = new DATA_BASE_CONNECTIVITY();
+
+                String que = "insert into Cancel values('" + PNR + "','" + Cancel_Num + "','" + Name  + "','" + Date + "','" + Flight_Code + "'PNR-589379)";
+
+                c.s.executeUpdate(que);
+                c.s.executeUpdate("delete from reservation where PNR = '"+PNR+"'");
+
+                JOptionPane.showMessageDialog(null, "Ticket Cancelled");
+                setVisible(false);
+
+            } catch (Exception ee) {
+                ee.printStackTrace();
+            }
+        }
+    }
+
+
+    public static void main(String[] args) {
+        new cancel_Reservation();
+    }
+}
