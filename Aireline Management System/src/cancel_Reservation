@@ -140,7 +140,6 @@ public class cancel_Reservation extends JFrame implements ActionListener {
 
     }
 
-
     @Override
     public void actionPerformed(ActionEvent e) {
         String PNR = PNR_tf.getText();
