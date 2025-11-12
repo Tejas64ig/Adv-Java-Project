@@ -151,3 +151,40 @@ public class ADD_Customer_details extends JFrame implements ActionListener {
         setLocation(300, 60);
         setVisible(true);
     }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+
+        String Name  = Name_tf.getText();
+        String Nationality = Nationality_tf.getText();
+        String Aadhar_NO= AadharNO_tf.getText();
+
+        String Gender  = null;
+        if (male.isSelected()) {
+            Gender = "male";
+        }
+        else if (female.isSelected()) {
+            Gender = "female";
+        }
+        else if (Other.isSelected()) {
+            Gender = "Other";
+        }
+        
+        }
+        if(e.getSource()==Reset_button)
+        {
+            Name_tf.setText("");
+            Nationality_tf.setText("");
+            AadharNO_tf.setText("");
+            Phone_num_tf.setText("");
+
+        }
+
+
+    }
+
+    public static void main(String[] args) {
+        new ADD_Customer_details();
+    }
+}
