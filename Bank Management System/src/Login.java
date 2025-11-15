@@ -105,39 +105,11 @@ public class Login extends JFrame implements ActionListener {
         setVisible(true);
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        if(e.getSource()==Sigh_button){
-            setVisible(false);
-            Sigh_Up sigh = new Sigh_Up();
-        } else if (e.getSource()==Reset_button) {
-            IDfiled.setText(" ");
-            passwordField.setText(" ");
-        } else if (e.getSource()==Loginbutton) {
-
-            DATA_BASE_CONNECTIVITY c = new DATA_BASE_CONNECTIVITY();
-            java.lang.String cardNum = IDfiled.getText();
-            java.lang.String pin = passwordField.getText();
-            String q = "SELECT * FROM LOGIN_1 WHERE cardNum = '" + cardNum + "' AND pin = '" + pin + "'";
-
-            try {
-                ResultSet rs = c.s.executeQuery(q);
-                if(rs.next()){
-                    setVisible(false);
-                    new Trans( pin).setVisible(true);
-                }
-             else {
-                 JOptionPane.showMessageDialog(null,"Incorrect Cardnumber  or pin");
-                }
-            }catch (Exception ae){
-                System.out.println(ae);
-            }
-        }
-        }
 
     public static void main(String[] args) {
         Login L = new Login( );
 }
         }
+
 
 
