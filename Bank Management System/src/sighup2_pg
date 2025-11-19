@@ -198,10 +198,4 @@ public  class sighup2_pg  extends JFrame implements ActionListener {
              new Sighup_3pg(Formno).setVisible(true);
 
         }
-    public static void main(String[] args) {
-        sighup2_pg knevw = new sighup2_pg( "");
-    }
-}
-
-
-
+   
