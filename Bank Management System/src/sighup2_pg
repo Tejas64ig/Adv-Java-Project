@@ -186,6 +186,18 @@ public  class sighup2_pg  extends JFrame implements ActionListener {
             Sineor_citizen = "NO";
         }
 
+        try {
+            DATA_BASE_CONNECTIVITY c = new DATA_BASE_CONNECTIVITY();
+            java.lang.String q = "insert S2 Values('" + formno + "', '" + Religion + "', '" + category + "', '" + Income + "', '" + Educatation + "', '" + occupatiom + "', '" + Pan + "', '" + Addhar + "' )";
+            c.s.executeUpdate(q);
+        } catch (Exception exception) {
+
+            System.out.println(e);
+        }
+            setVisible(false);
+             new Sighup_3pg(Formno).setVisible(true);
+
+        }
     public static void main(String[] args) {
         sighup2_pg knevw = new sighup2_pg( "");
     }
