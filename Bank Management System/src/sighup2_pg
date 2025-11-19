@@ -166,3 +166,30 @@ public  class sighup2_pg  extends JFrame implements ActionListener {
         setVisible(true);
     }
 
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+        String formno = " " + Formno;
+        String Religion = (java.lang.String) Religion_dropdown.getSelectedItem();
+        String category = (java.lang.String) category_dropdown.getSelectedItem();
+        String Income = (java.lang.String) Income_dropdown.getSelectedItem();
+       String Educatation = (java.lang.String) Educatation_dropdown.getSelectedItem();
+       String occupatiom = (java.lang.String) occupatiom_dropdown.getSelectedItem();
+        java.lang.String Pan = Pan_filed.getText();
+       String Addhar = Addhar_field.getText();
+
+        java.lang.String Sineor_citizen = null;
+        if (yes.isSelected()) {
+            Sineor_citizen = "yes";
+        } else if (NO.isSelected()) {
+            Sineor_citizen = "NO";
+        }
+
+    public static void main(String[] args) {
+        sighup2_pg knevw = new sighup2_pg( "");
+    }
+}
+
+
+
