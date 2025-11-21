@@ -65,4 +65,96 @@ public class CashWithdraw extends JFrame implements ActionListener {
 
     }
 
-   cc
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == Submit_vutton) {
+            String amo = amo_filed.getText();
+            Date fate = new Date();
+            if (amo.equals("")) {
+                JOptionPane.showMessageDialog(null, "Krupa amo daloo  ree ");
+
+            } else {
+                try {
+                    DATA_BASE_CONNECTIVITY c = new DATA_BASE_CONNECTIVITY();
+                    ResultSet rs = c.s.executeQuery("select * from bank where pin = '" + pinnumber + "'");
+                    int balance = 0;
+                    while (rs.next()) {
+                        if (rs.getString("type").equals("Deposit")) {
+                            balance += Integer.parseInt(rs.getString("amo"));
+                        } else {
+                            balance -= Integer.parseInt(rs.getString("amo"));
+                        }
+                    }
+                    if (balance < Integer.parseInt(amo)) {
+                        JOptionPane.showMessageDialog(null, "Insuffient Balance");
+                        return;
+                    }
+
+                    c.s.executeUpdate("insert into bank values('" + pinnumber + "', '" + fate + "', 'Withdrawl', '" + amo + "')");
+                    JOptionPane.showMessageDialog(null, "Rs. " + amo + " Debited Successfully");
+
+                    setVisible(false);
+                    Trans tr = new Trans(pinnumber);
+                } catch (Exception ex){
+                    ex.printStackTrace();
+                }
+            }
+            }
+
+
+        else if (e.getSource() == Back_b) {
+            setVisible(false);
+            new Trans(  pinnumber).setVisible(true);
+
+        }
+    }
+
+
+
+ @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == Submit_vutton) {
+            String amo = amo_filed.getText();
+            Date fate = new Date();
+            if (amo.equals("")) {
+                JOptionPane.showMessageDialog(null, "Krupa amo daloo  ree ");
+
+            } else {
+                try {
+                    DATA_BASE_CONNECTIVITY c = new DATA_BASE_CONNECTIVITY();
+                    ResultSet rs = c.s.executeQuery("select * from bank where pin = '" + pinnumber + "'");
+                    int balance = 0;
+                    while (rs.next()) {
+                        if (rs.getString("type").equals("Deposit")) {
+                            balance += Integer.parseInt(rs.getString("amo"));
+                        } else {
+                            balance -= Integer.parseInt(rs.getString("amo"));
+                        }
+                    }
+                    if (balance < Integer.parseInt(amo)) {
+                        JOptionPane.showMessageDialog(null, "Insuffient Balance");
+                        return;
+                    }
+
+                    c.s.executeUpdate("insert into bank values('" + pinnumber + "', '" + fate + "', 'Withdrawl', '" + amo + "')");
+                    JOptionPane.showMessageDialog(null, "Rs. " + amo + " Debited Successfully");
+
+                    setVisible(false);
+                    Trans tr = new Trans(pinnumber);
+                } catch (Exception ex){
+                    ex.printStackTrace();
+                }
+            }
+            }
+
+
+        else if (e.getSource() == Back_b) {
+            setVisible(false);
+            new Trans(  pinnumber).setVisible(true);
+
+        }
+    }
+
+
+
+
