@@ -64,3 +64,36 @@ public class Deposite extends JFrame implements ActionListener {
         setLocation(300, 60);
         setVisible(true);
     }
+  @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == Deposite_b) {
+            String amo = amo_t.getText();
+
+            Date fate = new Date();
+            if (amo.equals("")) {
+                JOptionPane.showMessageDialog(null, "Krupa amo enter karo ree ");
+
+            }
+            else {
+                try {
+                    DATA_BASE_CONNECTIVITY c = new DATA_BASE_CONNECTIVITY();
+                   // java.sql.Timestamp sqlDate = new java.sql.Timestamp(fate.getTime());
+                    String q = "insert into bank values('"+pinnumber+"', '"+fate+"', 'Deposit', '"+amo+"')";
+                     c.s.executeUpdate(q);
+                    JOptionPane.showMessageDialog(null, "Rs. "+amo+" Deposited Successfully");
+                    setVisible(false);
+                    new Trans(pinnumber).setVisible(true);
+ } catch (Exception ex) {
+                    ex.printStackTrace();
+                    setVisible(false);
+                    new Trans(  pinnumber).setVisible(true);
+                }
+            }
+        }
+        else if (e.getSource() == Back_b) {
+            setVisible(false);
+             new Trans(  pinnumber).setVisible(true);
+
+        }
+    }
+
