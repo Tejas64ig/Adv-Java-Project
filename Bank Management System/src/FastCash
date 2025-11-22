@@ -105,3 +105,39 @@ JButton  Deposite_b;
         setVisible(true);
 
     }
+@Override
+    public void actionPerformed(ActionEvent e) {
+
+        if(e.getSource()==Exit_b){
+            new Trans( pinnumber);
+        }
+        else{
+            try {
+                String amo = ((JButton)e.getSource()).getText().trim();
+
+                Date date = new Date();
+                DATA_BASE_CONNECTIVITY c1 = new DATA_BASE_CONNECTIVITY();
+
+                ResultSet rs = c1.s.executeQuery("select * from bank where pin = '" + pinnumber + "'");
+                int balance = 0;
+                while (rs.next()) {
+                    if (rs.getString("type").equals("Deposit")) {
+                        balance += Integer.parseInt(rs.getString("amo"));
+                    } else {
+                        balance -= Integer.parseInt(rs.getString("amo"));
+                    }
+                }
+                if (balance < Integer.parseInt(amo)) {
+                    JOptionPane.showMessageDialog(null, "Insuffient Balance");
+                    return;
+                }
+
+                c1.s.executeUpdate("insert into bank values('" + pinnumber + "', '" + date + "', 'Withdrawl', '" + amo + "')");
+                JOptionPane.showMessageDialog(null, "Rs. " + amo + " Debited Successfully");
+
+                setVisible(false);
+                Trans tr = new Trans(pinnumber);
+            } catch (Exception ex){
+                ex.printStackTrace();
+            }
+        }
