@@ -21,6 +21,20 @@ public class Mini_Statetement extends JFrame implements ActionListener {
             img_lb.setBounds(510, 420, 350, 400);
             p.add(img_lb);
         setTitle("Mini Statetement");
+ JLabel mini = new JLabel();
+        mini.setBounds(100,140,400,200);
+            mini.setForeground(Color.WHITE);
+            mini.setBackground(Color.black);
+        p.add(mini);
 
-       }
+        JLabel t = new JLabel(" bro's bank");
+        t.setForeground(Color.WHITE);
+        t.setBounds(150,20,100,20);
+        p.add(t);
+
+            JLabel card = new JLabel();
+            card.setForeground(Color.WHITE);
+            card.setBounds(20,80,300,20);
+            p.add(card);
+}
 }
