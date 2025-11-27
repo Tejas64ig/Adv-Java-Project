@@ -85,7 +85,9 @@ public class Pin_Change extends JFrame implements ActionListener {
         setLocation(300, 60);
         setVisible(true);
     }
-rride
+
+
+    @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == Change_Button) {
             try {
@@ -99,6 +101,20 @@ rride
                 if (New_pin.equals("")) {
 
                     JOptionPane.showMessageDialog(null, " Entered a pin ");
+                } else {
+
+
+                    DATA_BASE_CONNECTIVITY db = new DATA_BASE_CONNECTIVITY();
+
+                    String query1 = " update bank set pin = '" + New_pin + "' where pin='" + pinnumber + "'";
+                    String query2 = " update login set pin = '" + New_pin + "' where pin='" + pinnumber + "'";
+                    String query3 = " update Sighup_3pg set pin = '" + New_pin + "' where pin='" + pinnumber + "'";
+                    db.s.executeUpdate(query1);
+                    db.s.executeUpdate(query2);
+                    db.s.executeUpdate(query3);
+                    JOptionPane.showMessageDialog(null, "Pin changed sucessfully ");
+                    setVisible(false);
+                    new Trans(New_pin).setVisible(true);
                 }
             } catch (Exception ae) {
                 System.out.println(ae);
@@ -110,3 +126,7 @@ rride
             new Trans(pinnumber).setVisible(true);
         }
     }
+
+
+
+}
