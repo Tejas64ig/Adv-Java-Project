@@ -126,7 +126,7 @@ public class Pin_Change extends JFrame implements ActionListener {
             new Trans(pinnumber).setVisible(true);
         }
     }
-
-
-
+    public static void main(String[] args) {
+        Pin_Change p = new Pin_Change( "");
+        }
 }
