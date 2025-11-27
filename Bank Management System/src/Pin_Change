@@ -22,3 +22,66 @@ public class Pin_Change extends JFrame implements ActionListener {
 
         this.pinnumber = pinnumber;
 
+        p = new JPanel();
+        setTitle("reset PIN ");
+
+        ImageIcon Bg = new ImageIcon("C:\\Users\\HP\\Downloads\\atm.jpg ");
+        JLabel Bg_Label = new JLabel(Bg);
+        Bg_Label.setBounds(0, 0, 400, 500);
+        setContentPane(new JLabel(Bg));
+
+        Tittle_label = new JLabel("Reset your pin ");
+        Tittle_label.setBounds(200, 170, 500, 35);
+        Tittle_label.setForeground(Color.white);
+        Tittle_label.setBackground(Color.black);
+        Tittle_label.setFont(new Font("Railway", Font.ITALIC, 22));
+        p.add(Tittle_label);
+
+        pin_lb = new JLabel("New Pin ");
+        pin_lb.setBounds(80, 230, 200, 30);
+        pin_lb.setForeground(Color.white);
+        pin_lb.setBackground(Color.black);
+        pin_lb.setFont(new Font("Railway", Font.ITALIC, 22));
+        p.add(pin_lb);
+
+        pin_passfield = new JPasswordField();
+        pin_passfield.setBounds(240, 230, 130, 25);
+        p.add(pin_passfield);
+
+        Re_new_pinLabel = new JLabel("Re-Enter PIN");
+        Re_new_pinLabel.setBounds(80, 300, 200, 30);
+        Re_new_pinLabel.setForeground(Color.white);
+        Re_new_pinLabel.setBackground(Color.black);
+        Re_new_pinLabel.setFont(new Font("Railway", Font.ITALIC, 22));
+        p.add(Re_new_pinLabel);
+
+        Re_new_pinTextFiled = new JPasswordField();
+        Re_new_pinTextFiled.setBounds(240, 300, 180, 25);
+        p.add(Re_new_pinTextFiled);
+
+        Change_Button = new JButton("Submit");
+        Change_Button.setBounds(370, 390, 90, 30);
+        Change_Button.setFocusable(false);
+        Change_Button.setForeground(Color.WHITE);
+        Change_Button.setBackground(Color.black);
+        Change_Button.addActionListener(this);
+        p.add(Change_Button);
+
+        Back_Button = new JButton("Back");
+        Back_Button.setBounds(370, 430, 90, 30);
+        Back_Button.setFocusable(false);
+        Back_Button.setForeground(Color.WHITE);
+        Back_Button.setBackground(Color.black);
+        Back_Button.addActionListener(this);
+        p.add(Back_Button);
+
+        p.setBounds(0, 0, 800, 720);
+        p.setOpaque(false);
+        p.setLayout(null);
+        add(p);
+
+        setLayout(null);
+        setSize(800, 720);
+        setLocation(300, 60);
+        setVisible(true);
+    }
