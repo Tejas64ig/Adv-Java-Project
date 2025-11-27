@@ -1,1 +1,24 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class Pin_Change extends JFrame implements ActionListener {
+    JPanel p;
+    JLabel Tittle_label;
+
+    JLabel pin_lb;
+    JPasswordField pin_passfield;
+
+    JLabel Re_new_pinLabel;
+    JPasswordField Re_new_pinTextFiled;
+
+    JButton Change_Button;
+    JButton Back_Button;
+
+    String pinnumber;
+
+    Pin_Change(String pinnumber) {
+
+        this.pinnumber = pinnumber;
 
