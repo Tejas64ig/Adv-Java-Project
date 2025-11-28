@@ -143,3 +143,8 @@ public class Trans extends JFrame implements ActionListener {
 
 
     }
+
+    public static void main(String[] args) {
+        Trans p = new Trans( "");
+    }
+}
