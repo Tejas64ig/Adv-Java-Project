@@ -1,1 +1,99 @@
 
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+
+public class Login extends JFrame implements ActionListener {
+    JPanel panel;
+    JButton signupBtn, loginBtn, resetBtn;
+    JLabel idLabel, passLabel, textLabel, bgLabel;
+    JTextField idField;
+    JPasswordField passwordField;
+
+    Login() {
+        setTitle("Umm Hotel Management");
+        setSize(800, 480);
+        setLocation(300, 150);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(null);
+
+        // Background image
+        ImageIcon bgIcon = new ImageIcon("");
+        bgLabel = new JLabel(bgIcon);
+        bgLabel.setBounds(0, 0, 800, 480);
+        add(bgLabel);
+
+        // Transparent panel for components
+        panel = new JPanel();
+        panel.setBounds(0, 0, 800, 480);
+        panel.setOpaque(false);
+        panel.setLayout(null);
+        add(panel);
+
+        // Title label
+        textLabel = new JLabel("Enter Your details");
+        textLabel.setBounds(180, 40, 400, 40);
+        textLabel.setFont(new Font("Osward", Font.ITALIC, 20));
+        textLabel.setForeground(Color.WHITE);
+        panel.add(textLabel);
+
+        // Card Number label
+        idLabel = new JLabel("CARD Number");
+        idLabel.setBounds(100, 110, 150, 40);
+        idLabel.setForeground(Color.WHITE);
+        idLabel.setFont(new Font("COWRED", Font.BOLD, 14));
+        panel.add(idLabel);
+
+        // Card Number field
+        idField = new JTextField();
+        idField.setBounds(210, 110, 250, 30);
+        panel.add(idField);
+
+        // Password label
+        passLabel = new JLabel("PASSWORD");
+        passLabel.setBounds(100, 190, 200, 40);
+        passLabel.setForeground(Color.WHITE);
+        passLabel.setFont(new Font("COWRED", Font.BOLD, 14));
+        panel.add(passLabel);
+
+        // Password field
+        passwordField = new JPasswordField();
+        passwordField.setBounds(210, 190, 250, 30);
+        panel.add(passwordField);
+
+        // Login button
+        loginBtn = new JButton("LOGIN IN");
+        loginBtn.setBounds(220, 250, 100, 30);
+        loginBtn.setBackground(Color.BLACK);
+        loginBtn.setForeground(Color.WHITE);
+        loginBtn.setFocusable(false);
+        loginBtn.addActionListener(this);
+        panel.add(loginBtn);
+
+        // Reset button
+        resetBtn = new JButton("RESET");
+        resetBtn.setBounds(350, 250, 100, 30);
+        resetBtn.setBackground(Color.BLACK);
+        resetBtn.setForeground(Color.WHITE);
+        resetBtn.setFocusable(false);
+        resetBtn.addActionListener(this);
+        panel.add(resetBtn);
+
+        // Signup button
+        signupBtn = new JButton("SIGN UP");
+        signupBtn.setBounds(220, 290, 230, 30);
+        signupBtn.setBackground(Color.BLACK);
+        signupBtn.setForeground(Color.WHITE);
+        signupBtn.setFocusable(false);
+        signupBtn.addActionListener(this);
+        panel.add(signupBtn);
+
+        setVisible(true);
+    }
+
+   
+    public static void main(String[] args) {
+        new Login();
+    }
+}
