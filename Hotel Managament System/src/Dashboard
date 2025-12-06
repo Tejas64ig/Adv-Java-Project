@@ -16,7 +16,7 @@ public class Sigh_Up extends JFrame implements ActionListener {
     long random;
 
     JLabel Name_label;
-    JTextField Name_Filed;
+    JTextField Name_Filed;       
 
     JLabel Father_label;
     JTextField Father_Filed;
